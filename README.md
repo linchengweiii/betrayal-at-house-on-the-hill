@@ -64,9 +64,9 @@ npm run start
     │   └── Floor/
     │       └── Room/
     └── Character/
-        ├── Explorer.ts (abstract)
+        ├── Explorer.ts
         ├── Explorers.ts
-        ├── Monster.ts (abstract)
+        ├── Monster.ts
         ├── Monsters.ts
         └── Trait.ts
 ```

@@ -3,6 +3,14 @@ import Trait from "./Trait"
 import { Die } from "../utils"
 
 namespace Character {
+  export interface Properties {
+    name: string;
+    speed?: Trait;
+    might?: Trait;
+    sanity?: Trait;
+    knowledge?: Trait;
+  }
+
   export const enum Action {
     Move,
     DieRoll,
@@ -24,27 +32,17 @@ abstract class Character implements InterfaceCharacter {
   private _fetchActionResolve?: Function;
   private _fetchActionTimeout?: NodeJS.Timeout;
 
-  public readonly traits: Trait[];
   public readonly name: string;
-
-  static readonly NAME: string;
-  static readonly SPEED_SCALE: number[];
-  static readonly MIGHT_SCALE: number[];
-  static readonly SANITY_SCALE: number[];
-  static readonly KNOWLEDGE_SCALE: number[];
-  static readonly SPEED_INIT_INDEX: number;
-  static readonly MIGHT_INIT_INDEX: number;
-  static readonly SANITY_INIT_INDEX: number;
-  static readonly KNOWLEDGE_INIT_INDEX: number;
+  public readonly abstract type: Character.Type;
+  public readonly traits: (Trait | undefined)[];
   
-  constructor() {
-    const props = this.constructor as typeof Character;
-    this.name = props.NAME;
+  constructor(props: Character.Properties) {
+    this.name = props.name;
     this.traits = [
-      new Trait(props.SPEED_SCALE, props.SPEED_INIT_INDEX),
-      new Trait(props.MIGHT_SCALE, props.MIGHT_INIT_INDEX),
-      new Trait(props.SANITY_SCALE, props.SANITY_INIT_INDEX),
-      new Trait(props.KNOWLEDGE_SCALE, props.KNOWLEDGE_INIT_INDEX),
+      props.speed,
+      props.might,
+      props.sanity,
+      props.knowledge,
     ];
   }
 
@@ -88,13 +86,16 @@ abstract class Character implements InterfaceCharacter {
     return Promise.resolve(this._action);
   }
 
-  public getTrait(type: Trait.Type): Trait {
+  public getTrait(type: Trait.Type): Trait | undefined {
     return this.traits[type];
   }
 
   public roll(type: Trait.Type): number[] {
+    if (this.traits[type] === undefined)
+      throw new Error("Assertion Error: " + this.name + " has no trait " + type);
+
     let dice = [];
-    const num_die = this.traits[type].value;
+    const num_die = this.traits[type]!.value;
     for (let i = 0; i < num_die; i++) {
       dice.push(Die.roll());
     }
