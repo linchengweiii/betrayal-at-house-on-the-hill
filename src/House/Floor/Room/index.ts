@@ -1,6 +1,3 @@
 export { default } from "./Room"
-export { default as BasementLanding } from "./BasementLanding"
-export { default as EntranceHall } from "./EntranceHall"
-export { default as Foyer } from "./Foyer"
-export { default as GrandStaircase } from "./GrandStaircase"
-export { default as UpperLanding } from "./UpperLanding"
+export * from "./InitialRooms"
+export * from "./Rooms"

@@ -1,32 +1,64 @@
 import InterfaceRoom from "./Room.interface"
 
-export default abstract class Room implements InterfaceRoom {
+namespace Room {
+  export interface Properties {
+    name: string;
+    doors: boolean[];
+    effects: Room.Effect[];
+
+    readonly card: Room.Card;
+    readonly outside: boolean;
+    readonly windows: boolean;
+    readonly dumbwaiter: boolean;
+  }
+
+  export const enum Card {
+    Event,
+    Item,
+    Omen,
+    None,
+  }
+
+  export const enum Effect {
+    // TODO: Add room effects
+  }
+}
+
+class Room implements InterfaceRoom {
+  public name: string;
   public doors: boolean[];
-  private _events: number;
-  private _items: number;
-  private _omens: number;
-  private _window: boolean;
+  public effects: Room.Effect[];
 
-  static readonly DOORS: boolean[];
-  static readonly EVENTS: number;
-  static readonly ITEMS: number;
-  static readonly OMENS: number;
-  static readonly WINDOW: boolean;
+  private readonly _card: Room.Card;
+  private readonly _outside: boolean;
+  private readonly _windows: boolean;
+  private readonly _dumbwaiter: boolean;
 
-  constructor() {
-    const props = this.constructor as typeof Room;
-    this.doors = props.DOORS;
-    this._events = props.EVENTS;
-    this._items = props.ITEMS;
-    this._omens = props.OMENS;
-    this._window = props.WINDOW;
+  constructor(props: Room.Properties) {
+    this.name = props.name;
+    this.doors = props.doors;
+    this.effects = props.effects;
+    this._card = props.card;
+    this._outside = props.outside;
+    this._windows = props.windows;
+    this._dumbwaiter = props.dumbwaiter;
   }
 
   public rotate(): void {
     this.doors.unshift(this.doors.pop()!);
   }
 
-  public hasWindow(): boolean {
-    return this._window;
+  public isOutside(): boolean {
+    return this._outside;
+  }
+
+  public hasWindows(): boolean {
+    return this._windows;
   } 
+
+  public hasDumbWaiter(): boolean {
+    return this._dumbwaiter;
+  }
 }
+
+export default Room;
