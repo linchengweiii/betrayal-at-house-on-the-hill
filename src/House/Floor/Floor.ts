@@ -1,5 +1,5 @@
 import InterfaceFloor from "./Floor.interface"
-import Room, { BasementLanding } from "./Room"
+import Room from "./Room"
 
 namespace Floor {
   export const enum Type{
