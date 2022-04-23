@@ -6,7 +6,7 @@ export const InitialRooms: Record<string, Room.Properties> = {
     doors: [true, true, true, true],
     effects: [],
     card: Room.Card.None,
-    outside: false,
+    outside: true,
     windows: false,
     dumbwaiter: false,
   },
@@ -27,7 +27,7 @@ export const InitialRooms: Record<string, Room.Properties> = {
     effects: [],
     card: Room.Card.None,
     outside: false,
-    windows: false,
+    windows: true,
     dumbwaiter: false,
   },
 

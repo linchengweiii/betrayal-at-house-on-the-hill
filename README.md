@@ -43,6 +43,14 @@ npm run start
 
 
 
+## Clarifications
+
+### Rooms
+
+- Vault: No matter how you get into here, you will be on the door side. (That is, you must attempt the Knowledge roll to open the vault.)
+
+
+
 ## Directory Structure
 
 ```bash
