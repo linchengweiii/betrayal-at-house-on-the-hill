@@ -1,6 +1,6 @@
 export { default } from "./Floor"
-export { default as Room } from "./Room"
 export { default as Basement } from "./Basement"
 export { default as Ground } from "./Ground"
 export { default as Upper } from "./Upper"
 export { default as Roof } from "./Roof"
+export { default as Room, InitialRooms as InitialRooms, Rooms as Rooms } from "./Room"
