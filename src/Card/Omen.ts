@@ -4,9 +4,9 @@ import { Room } from "../House"
 
 export namespace Omen {
   export interface Properties extends Card.Properties {
-    readonly immovable: boolean; // This omen can't be dropped, traded, or stolen.
-    readonly companion: boolean; // This omen is a companion.
-    readonly weapon: boolean; // This item is a weapon. Weapons can not be used together.
+    readonly immovable?: boolean; // This omen can't be dropped, traded, or stolen.
+    readonly companion?: boolean; // This omen is a companion.
+    readonly weapon?: boolean; // This item is a weapon. Weapons can not be used together.
   }
 
   export interface Effect extends Card.Effect {
@@ -70,6 +70,16 @@ export namespace Omen {
 export class Omen extends Card {
   public readonly type: Card.Type = Card.Type.Omen;
   public static revealed: number = 0;
+  public readonly immovable: boolean;
+  public readonly companion: boolean;
+  public readonly weapon: boolean;
+
+  constructor(props: Omen.Properties) {
+    super(props);
+    this.immovable = props.immovable ?? false;
+    this.companion = props.companion ?? false;
+    this.weapon = props.weapon ?? false;
+  }
 
   public activate(character?: Character, room?: Room): void {
 
