@@ -9,15 +9,21 @@ namespace Trait {
 
 class Trait {
   private readonly _scale: number[];
+  private readonly _initial_index: number;
   private _index: number;
 
   constructor(scale: number[], initial_index: number) {
     this._scale = scale;
+    this._initial_index = initial_index;
     this._index = initial_index;
   }
 
   get info(): [number[], number] {
     return [this._scale, this._index];
+  }
+
+  get startingValue(): number {
+    return this._initial_index;
   }
 
   get value(): number {
