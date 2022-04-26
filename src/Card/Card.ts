@@ -4,9 +4,9 @@ import { Room } from "../House"
 
 namespace Card {
   export interface Properties {
-    name: string;
-    description: string;
-    activate(character?: Character, room?: Room): void;
+    readonly name: string;
+    readonly description: string;
+    readonly effect: Card.Effect;
   }
 
   export const enum Type {
@@ -14,19 +14,27 @@ namespace Card {
     Item,
     Omen,
   }
+
+  export interface Effect {
+    // An empty interface to make Card.Effect a type
+  }
+
 }
 
 abstract class Card implements InterfaceCard {
   public readonly abstract type: Card.Type;
   public readonly name: string;
   public readonly description: string;
-  public activate: (character?: Character, room?: Room) => void;
+  public readonly effect: Card.Effect;
 
   constructor(props: Card.Properties) {
     this.name = props.name;
     this.description = props.description;
-    this.activate = props.activate;
+    this.effect = props.effect;
   }
+
+  public abstract activate(character?: Character, room?: Room): void;
+
 }
 
 export default Card;

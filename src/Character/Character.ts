@@ -25,6 +25,12 @@ namespace Character {
     Explorer,
     Monster,
   }
+
+  export const enum Status {
+    Normal = "You can do anything.",
+    Buried = "You are buried. You can't do anything until you're freed. Explorers in the same room can attempt a Might roll to free you on their turn. (You can also attempt this roll.) A 4+ succeeds. After 3 unsuccessful attempts, you break free automatically on your next turn and take your turn normally.",
+    Stuck = "You are stuck. You can't do anything until you're freed. Explorers in the same room can attempt a Might roll to free you on their turn. (You can also attempt this roll.) A 4+ succeeds. Anyone failing an attempt can't move for the rest of that turn. After 3 unsuccessful attempts, you break free automatically on your next turn and take your turn normally.",
+  }
 }
 
 abstract class Character implements InterfaceCharacter {
