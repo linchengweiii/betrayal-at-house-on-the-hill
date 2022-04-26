@@ -1,7 +1,7 @@
-import InterfaceFloor from "./Floor.interface"
-import Room from "./Room"
+import { InterfaceFloor } from "./Floor.interface"
+import { Room } from "./Room"
 
-namespace Floor {
+export namespace Floor {
   export const enum Type{
     Basement = 0,
     Ground = 1,
@@ -9,7 +9,7 @@ namespace Floor {
   }
 }
 
-abstract class Floor implements InterfaceFloor {
+export abstract class Floor implements InterfaceFloor {
   public rooms: Room[][];
   protected readonly SIDE_LENGTH = 15;
 
@@ -20,5 +20,3 @@ abstract class Floor implements InterfaceFloor {
     }
   }
 }
-
-export default Floor;

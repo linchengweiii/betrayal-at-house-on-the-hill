@@ -1,6 +1,7 @@
-import Character from "./Character"
-import House, { Room } from "./House"
-import { Event, Item, Omen } from "./Card"
+import { Character } from "./Character"
+import { House, Room, Rooms } from "./House"
+import { Event, Events, Item, Items, Omen, Omens } from "./Card"
+import { shuffle } from "./utils"
 
 interface InterfaceGame {
   gameover: boolean;
@@ -8,7 +9,7 @@ interface InterfaceGame {
   act(): Promise<void>;
 }
 
-export default class Game implements InterfaceGame{
+export class Game implements InterfaceGame{
   private activeRole: number;
   private roles: Character[];
   private house: House;
@@ -20,22 +21,22 @@ export default class Game implements InterfaceGame{
 
   public gameover: boolean = false;
 
-  constructor(roles: Character[]) {
+  constructor(explorers: Character[]) {
     this.activeRole = 0;
-    this.roles = roles;
+    this.roles = explorers;
     this.house = new House();
-    // TODO: Initialize with card pool
-    this.roomStack = [];
-    this.eventStack = [];
-    this.itemStack = [];
-    this.omenStack = [];
+    this.roomStack = shuffle(Rooms.map(props => new Room(props)));
+    this.eventStack = shuffle(Events.map(props => new Event(props)));
+    this.itemStack = shuffle(Items.map(props => new Item(props)));
+    this.omenStack = shuffle(Omens.map(props => new Omen(props)));
     this.discardRooms = [];
   }
 
   public async play(): Promise<void> {
-    console.log("Game Start")
+    console.log("Game Start");
 
     while (this.gameover === false) {
+      console.log("It's " + this.roles[this.activeRole].name + "'s turn.");
       try {
         await this.act();
         // TODO: Refresh the frontend

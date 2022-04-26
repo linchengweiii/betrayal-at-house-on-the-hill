@@ -1,7 +1,7 @@
-import Room, { InitialRooms } from "./Room"
-import Floor from "./Floor"
+import { Room, InitialRooms } from "./Room"
+import { Floor } from "./Floor"
 
-export default class Ground extends Floor {
+export class Ground extends Floor {
   constructor() {
     super();
     const midpoint = (this.SIDE_LENGTH - 1) / 2;

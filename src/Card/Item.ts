@@ -1,8 +1,8 @@
-import Card from "./Card"
-import Character from "../Character"
+import { Card } from "./Card"
+import { Character } from "../Character"
 import { Room } from "../House"
 
-namespace Item {
+export namespace Item {
   export interface Properties extends Card.Properties {
     readonly weapon: boolean; // This item is a weapon. Weapons can not be used together.
     readonly disposable: boolean; // This item can only be used once.
@@ -101,12 +101,10 @@ namespace Item {
 
 }
 
-class Item extends Card {
+export class Item extends Card {
   public readonly type: Card.Type = Card.Type.Item;
 
   public activate(character?: Character, room?: Room): void {
 
   }
 }
-
-export default Item;

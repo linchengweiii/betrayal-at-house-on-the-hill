@@ -1,6 +1,6 @@
-import Room from "./Room"
+import { Room } from "./Room"
 
-export default interface InterfaceRoom {
+export interface InterfaceRoom {
   name: string;
 
   // Whether each direction has door or not

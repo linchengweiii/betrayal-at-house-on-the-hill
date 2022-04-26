@@ -1,6 +1,6 @@
-export { default } from "./Character"
-export { default as Explorer } from "./Explorer"
-export { default as Monster } from "./Monster"
+export * from "./Character"
+export * from "./Explorer"
+export * from "./Monster"
 
-export { default as Explorers } from "./Explorers"
-export { default as Monsters } from "./Monsters"
+export * from "./Explorers"
+export * from "./Monsters"

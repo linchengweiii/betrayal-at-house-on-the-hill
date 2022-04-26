@@ -1,6 +1,6 @@
-import InterfaceRoom from "./Room.interface"
+import { InterfaceRoom } from "./Room.interface"
 
-namespace Room {
+export namespace Room {
   export interface Properties {
     name: string;
     doors: boolean[];
@@ -88,7 +88,7 @@ namespace Room {
 
 }
 
-class Room implements InterfaceRoom {
+export class Room implements InterfaceRoom {
   public name: string;
   public doors: boolean[];
   public effects: Room.Effect[];
@@ -124,5 +124,3 @@ class Room implements InterfaceRoom {
     return this._dumbwaiter;
   }
 }
-
-export default Room;

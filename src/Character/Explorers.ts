@@ -1,8 +1,8 @@
-import Character from "./Character"
-import Explorer from "./Explorer"
-import Trait from "./Trait"
+import { Character } from "./Character"
+import { Explorer } from "./Explorer"
+import { Trait } from "./Trait"
 
-const Explorers: Character.Properties[] = [
+export const Explorers: Character.Properties[] = [
   {
     name: "Madame Zostra",
     speed: new Trait([2, 3, 3, 5, 5, 6, 6, 7], 2),
@@ -88,5 +88,3 @@ const Explorers: Character.Properties[] = [
     knowledge: new Trait([1, 2, 3, 4, 4, 5, 5, 5], 2),
   },
 ];
-
-export default Explorers;

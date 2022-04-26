@@ -1,4 +1,4 @@
-namespace Trait {
+export namespace Trait {
   export const enum Type {
     Speed = 0,
     Might = 1,
@@ -7,7 +7,7 @@ namespace Trait {
   }
 }
 
-class Trait {
+export class Trait {
   private readonly _scale: number[];
   private readonly _initial_index: number;
   private _index: number;
@@ -46,5 +46,3 @@ class Trait {
     return false;
   }
 }
-
-export default Trait;

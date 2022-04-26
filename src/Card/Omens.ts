@@ -1,4 +1,4 @@
-import Omen from "./Omen"
+import { Omen } from "./Omen"
 
 export const Omens: Omen.Properties[] = [
   {

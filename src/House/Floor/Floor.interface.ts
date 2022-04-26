@@ -1,5 +1,5 @@
-import Room from "./Room"
+import { Room } from "./Room"
 
-export default interface InterfaceFloor {
+export interface InterfaceFloor {
   rooms: Room[][];
 }

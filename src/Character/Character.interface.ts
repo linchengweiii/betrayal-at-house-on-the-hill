@@ -1,7 +1,7 @@
-import Trait from "./Trait"
-import Character from "./Character"
+import { Trait } from "./Trait"
+import { Character } from "./Character"
 
-export default interface InterfaceCharacter {
+export interface InterfaceCharacter {
   readonly name: string;
   readonly type: Character.Type;
   act(): Promise<Character.Action>;

@@ -1,8 +1,8 @@
-import InterfaceCard from "./Card.interface"
-import Character from "../Character"
+import { InterfaceCard } from "./Card.interface"
+import { Character } from "../Character"
 import { Room } from "../House"
 
-namespace Card {
+export namespace Card {
   export interface Properties {
     readonly name: string;
     readonly description: string;
@@ -21,7 +21,7 @@ namespace Card {
 
 }
 
-abstract class Card implements InterfaceCard {
+export abstract class Card implements InterfaceCard {
   public readonly abstract type: Card.Type;
   public readonly name: string;
   public readonly description: string;
@@ -36,5 +36,3 @@ abstract class Card implements InterfaceCard {
   public abstract activate(character?: Character, room?: Room): void;
 
 }
-
-export default Card;

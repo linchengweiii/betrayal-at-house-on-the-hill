@@ -1,8 +1,8 @@
-import InterfaceCharacter from "./Character.interface"
-import Trait from "./Trait"
+import { InterfaceCharacter } from "./Character.interface"
+import { Trait } from "./Trait"
 import { Die } from "../utils"
 
-namespace Character {
+export namespace Character {
   export interface Properties {
     name: string;
     speed?: Trait;
@@ -33,7 +33,7 @@ namespace Character {
   }
 }
 
-abstract class Character implements InterfaceCharacter {
+export abstract class Character implements InterfaceCharacter {
   private _action: Character.Action = Character.Action.Noop;
   private _fetchActionResolve?: Function;
   private _fetchActionTimeout?: NodeJS.Timeout;
@@ -108,5 +108,3 @@ abstract class Character implements InterfaceCharacter {
     return dice;
   }
 }
-
-export default Character;

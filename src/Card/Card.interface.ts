@@ -1,8 +1,8 @@
-import Card from "./Card"
-import Character from "../Character/"
+import { Card } from "./Card"
+import { Character } from "../Character/"
 import { Room } from "../House"
 
-export default interface InterfaceCard {
+export interface InterfaceCard {
   readonly type: Card.Type;
   readonly name: string;
   readonly description: string;

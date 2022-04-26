@@ -1,8 +1,8 @@
-import Card from "./Card"
-import Character from "../Character"
+import { Card } from "./Card"
+import { Character } from "../Character"
 import { Room } from "../House"
 
-namespace Event {
+export namespace Event {
   export interface Properties extends Card.Properties {
     // An empty interface to make Event.Properties a type
   }
@@ -207,12 +207,10 @@ namespace Event {
   }
 }
 
-class Event extends Card {
+export class Event extends Card {
   public readonly type: Card.Type = Card.Type.Event;
 
   public activate(character?: Character, room?: Room): void {
 
   }
 }
-
-export default Event;

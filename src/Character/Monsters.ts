@@ -1,6 +1,4 @@
-import Character from "./Character"
-import Monster from "./Monster"
+import { Character } from "./Character"
+import { Monster } from "./Monster"
 
-const Monsters: Character.Properties[] = []
-
-export default Monsters;
+export const Monsters: Character.Properties[] = []

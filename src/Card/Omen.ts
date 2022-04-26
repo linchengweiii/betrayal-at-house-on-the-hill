@@ -1,8 +1,8 @@
-import Card from "./Card"
-import Character from "../Character"
+import { Card } from "./Card"
+import { Character } from "../Character"
 import { Room } from "../House"
 
-namespace Omen {
+export namespace Omen {
   export interface Properties extends Card.Properties {
     readonly immovable: boolean; // This omen can't be dropped, traded, or stolen.
     readonly companion: boolean; // This omen is a companion.
@@ -67,7 +67,7 @@ namespace Omen {
   }
 }
 
-class Omen extends Card {
+export class Omen extends Card {
   public readonly type: Card.Type = Card.Type.Omen;
   public static revealed: number = 0;
 
@@ -75,5 +75,3 @@ class Omen extends Card {
 
   }
 }
-
-export default Omen;

@@ -1,5 +1,5 @@
-import Floor from "./Floor"
+import { Floor } from "./Floor"
 
-export default interface InterfaceHouse {
+export interface InterfaceHouse {
   readonly floors: Floor[];
 }
